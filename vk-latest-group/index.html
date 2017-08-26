@@ -29,7 +29,7 @@
 	</div>
 
 	<script type="text/vkscript" id="vk1">
-	var oid=152471375,step=100000;
+	var oid=152000000,step=100000;
 	var L=oid,H,cursor,iterations=24,i,sampleSize=5,ids,r,valid,ttl=5,out={"max":-1,"delta":-1,"calls":0,"now":-1};
 	out.now=API.utils.getServerTime();
 	out.calls=out.calls+1;
@@ -39,7 +39,8 @@
 		cursor=parseInt((H+L)/2);
 		i=0;ids="";
 		while(i<sampleSize){
-			ids=ids+(cursor+i)+",";i=i+1;
+			ids=ids+(cursor+i)+",";
+			i=i+1;
 		}
 		r=API.groups.getById({"group_ids":ids});
 		out.calls=out.calls+1;
@@ -48,7 +49,8 @@
 		while(i>0){
 			i=i-1;
 			if(r[i].name!="DELETED"||r[i].deactivated!="deleted"){
-				valid=true;i=-1;
+				valid=true;
+				i=-1;
 			}
 		}
 		if(valid){
@@ -71,7 +73,8 @@
 		while(i<n){
 			id=max-10*i-10*loop*n;
 			ids=ids+(id)+","+(id-1)+","+(id-2)+","+(id-3)+","+(id-4)+","+(id-5)+","+(id-6)+","+(id-7)+","+(id-8)+","+(id-9)
-+",";i=i+1;
++",";
+			i=i+1;
 		}
 		out=out+API.groups.getById({"group_ids":ids,"fields":"members_count"});
 		loop=loop+1;
