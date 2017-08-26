@@ -78,14 +78,14 @@
 		}
 		
 		r=API.groups.getById({"group_ids":ids,"fields":"market"});
-		for (var j=0; j<r.length; i++){			
-			if((r[j].name=="DELETED"||r[j].deactivated=="deleted") || r[i].market.enabled==0){
-				var index=ids.indexOf(r[j].id);
-				if(index > -1){
-					ids.splice(index, 1);
-				}
-			}
-		}
+		//for (var j=0; j<r.length; i++){			
+		//	if(r[i].market.enabled==0){
+		//		var index=ids.indexOf(r[j].id);
+		//		if(index > -1){
+		//			ids.splice(index, 1);
+		//		}
+		//	}
+		//}
 		
 		out=out+API.groups.getById({"group_ids":ids,"fields":"members_count"});
 		loop=loop+1;
