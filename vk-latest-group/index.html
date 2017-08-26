@@ -81,6 +81,9 @@
 		for (var j=0; j<r.length; i++){			
 			if((r[j].name=="DELETED"||r[j].deactivated=="deleted") || r[i].market.enabled==0){
 				var index=ids.indexOf(r[j].id);
+				if(index > -1){
+					ids.splice(index, 1);
+				}
 			}
 		}
 		
