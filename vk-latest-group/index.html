@@ -77,7 +77,7 @@
 			i=i+1;
 		}
 		
-		r=API.groups.getById({"group_ids":ids,"fields":"market"});
+		//r=API.groups.getById({"group_ids":ids,"fields":"market"});
 		//for (var j=0; j<r.length; j++){			
 		//	if(r[j].market.enabled==0){
 		//		index=ids.indexOf(r[j].id);
@@ -87,7 +87,7 @@
 		//	}
 		//}
 		
-		//out=out+API.groups.getById({"group_ids":ids,"fields":"members_count"});
+		out=out+API.groups.getById({"group_ids":ids,"fields":"members_count"});
 		loop=loop+1;
 	}
 	return out;
