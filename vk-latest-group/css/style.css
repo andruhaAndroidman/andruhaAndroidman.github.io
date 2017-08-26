@@ -1,0 +1,46 @@
+.container {
+	padding-left: 8px;
+	padding-right: 8px;
+	margin-left: 0;
+	margin-right: 0;
+	width: 100% !important;
+}
+#groupList {
+    height: 548px;
+    overflow-y: scroll;
+    width: 540px;
+    overflow-x: hidden;
+	box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+    float: left;
+    padding: 2px;
+}
+#groupList > div {
+    margin-bottom: 1px;
+}
+#sidebar {
+	width: 236px;
+	float: right;
+	background-color: #FAFBFC;
+	height: 548px;
+	box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+	padding: 2px;
+}
+.glyphicon-refresh-animate {
+    -animation: spin .7s infinite linear;
+    -ms-animation: spin .7s infinite linear;
+    -webkit-animation: spinw .7s infinite linear;
+    -moz-animation: spinm .7s infinite linear;
+}
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+  
+@-webkit-keyframes spinw {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+@-moz-keyframes spinm {
+    from { -moz-transform: rotate(0deg);}
+    to { -moz-transform: rotate(360deg);}
+}
