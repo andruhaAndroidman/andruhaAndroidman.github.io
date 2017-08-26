@@ -66,7 +66,7 @@
 	</script>
 
 	<script type="text/vkscript" id="vk2">
-	;var i=0,n=4,loop=0,ids,id,out=[];
+	;var i=0,n=4,loop=0,ids,id,out=[],r,index=-1;
 	while(loop<25){
 		ids="";
 		i=0;
@@ -77,10 +77,10 @@
 			i=i+1;
 		}
 		
-		var r=API.groups.getById({"group_ids":ids,"fields":"market"});
+		r=API.groups.getById({"group_ids":ids,"fields":"market"});
 		//for (var j=0; j<r.length; j++){			
 		//	if(r[j].market.enabled==0){
-		//		var index=ids.indexOf(r[j].id);
+		//		index=ids.indexOf(r[j].id);
 		//		if(index > -1){
 		//			ids.splice(index, 1);
 		//		}
