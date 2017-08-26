@@ -77,9 +77,9 @@
 			i=i+1;
 		}
 		
-		//r=API.groups.getById({"group_ids":ids,"fields":"market"});
-		//for (var j=0; j<r.length; i++){			
-		//	if(r[i].market.enabled==0){
+		var r=API.groups.getById({"group_ids":ids,"fields":"market"});
+		//for (var j=0; j<r.length; j++){			
+		//	if(r[j].market.enabled==0){
 		//		var index=ids.indexOf(r[j].id);
 		//		if(index > -1){
 		//			ids.splice(index, 1);
