@@ -42,13 +42,13 @@
 			ids=ids+(cursor+i)+",";
 			i=i+1;
 		}
-		r=API.groups.getById({"group_ids":ids,"fields":"market"});
+		r=API.groups.getById({"group_ids":ids});
 		out.calls=out.calls+1;
 		i=sampleSize;
 		valid=false;
 		while(i>0){
 			i=i-1;
-			if((r[i].name!="DELETED"||r[i].deactivated!="deleted") && r[i].market.enabled==1){
+			if(r[i].name!="DELETED"||r[i].deactivated!="deleted"){
 				valid=true;
 				i=-1;
 			}
@@ -76,6 +76,14 @@
 +",";
 			i=i+1;
 		}
+		
+		r=API.groups.getById({"group_ids":ids,"fields":"market"});
+		for (var j=0; j<r.length; i++){			
+			if((r[j].name=="DELETED"||r[j].deactivated=="deleted") || r[i].market.enabled==0){
+				var index=ids.indexOf(r[j].id);
+			}
+		}
+		
 		out=out+API.groups.getById({"group_ids":ids,"fields":"members_count"});
 		loop=loop+1;
 	}
