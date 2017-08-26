@@ -29,7 +29,7 @@
 	</div>
 
 	<script type="text/vkscript" id="vk1">
-	var oid=0,step=100000;
+	var oid=152480768,step=100000;
 	var L=oid,H,cursor,iterations=24,i,sampleSize=5,ids,r,valid,ttl=5,out={"max":-1,"delta":-1,"calls":0,"now":-1};
 	out.now=API.utils.getServerTime();
 	out.calls=out.calls+1;
@@ -75,16 +75,6 @@
 			ids=ids+(id)+","+(id-1)+","+(id-2)+","+(id-3)+","+(id-4)+","+(id-5)+","+(id-6)+","+(id-7)+","+(id-8)+","+(id-9)
 +",";
 			i=i+1;
-		}
-		
-		r=API.groups.getById({"group_ids":ids,"fields":"market"});
-		for (var j=0; j<r.length; i++){			
-			if((r[j].name=="DELETED"||r[j].deactivated=="deleted") || r[i].market.enabled==0){
-				var index=ids.indexOf(r[j].id);
-				if(index > -1){
-					ids.splice(index, 1);
-				}
-			}
 		}
 		
 		out=out+API.groups.getById({"group_ids":ids,"fields":"members_count"});
