@@ -24,62 +24,33 @@
 		<div id="groupList"></div>
 		
 		<div id="sidebar">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Фильтр</label>
+				<input type="text" class="form-control" id="in-search" placeholder="Ключевое слово">
+			</div>
+<!-- 			<button class="btn btn-default" id="btn-search">Найти</button> -->
+<!-- 			<button class="btn btn-default" id="btn-showall">Показать все</button> -->
+
 			<button class="btn btn-default" id="btn-save" title="отобранные группы">Скачать</button>
+
 		</div>
 	</div>
 
 	<script type="text/vkscript" id="vk1">
-	var oid=152814516,step=100000;
-	var L=oid,H,cursor,iterations=24,i,sampleSize=5,ids,r,valid,ttl=5,out={"max":-1,"delta":-1,"calls":0,"now":-1};
-	out.now=API.utils.getServerTime();
-	out.calls=out.calls+1;
-	H=L+step;
-	while(iterations>0){
-		iterations=iterations-1;
-		cursor=parseInt((H+L)/2);
-		i=0;ids="";
-		while(i<sampleSize){
-			ids=ids+(cursor+i)+",";
-			i=i+1;
-		}
-		r=API.groups.getById({"group_ids":ids});
-		out.calls=out.calls+1;
-		i=sampleSize;
-		valid=false;
-		while(i>0){
-			i=i-1;
-			if(r[i].name!="DELETED"||r[i].deactivated!="deleted"){
-				valid=true;
-				i=-1;
-			}
-		}
-		if(valid){
-			out.max=cursor;
-			out.delta=cursor-L;
-			L=cursor;
-		} else {
-			out.delta=H-cursor;H=cursor;
-		}
-		if(out.delta<=sampleSize)iterations=-1;
-	}
-	return out;
+var oid=152821930,step=100000;
+var L=oid,H,cursor,iterations=24,i,sampleSize=5,ids,r,valid,ttl=5,out={"max":-1,"delta":-1,"calls":0,"now":-1};out.now=API.utils.getServerTime();out.calls=out.calls+1;H=L+step;while(iterations>0){iterations=iterations-1;cursor=parseInt((H+L)/2);i=0;ids="";while(i<sampleSize){ids=ids+(cursor+i)+",";i=i+1;}
+r=API.groups.getById({"group_ids":ids});out.calls=out.calls+1;i=sampleSize;valid=false;while(i>0){i=i-1;if(r[i].name!="DELETED"||r[i].deactivated!="deleted"){valid=true;i=-1;}}
+if(valid){out.max=cursor;out.delta=cursor-L;L=cursor;}else{out.delta=H-cursor;H=cursor;}
+if(out.delta<=sampleSize)iterations=-1;}
+return out;
 	</script>
 
 	<script type="text/vkscript" id="vk2">
-	;var i=0,n=4,loop=0,ids,id,out=[],r=[],index=-1;
-	while(loop<25){
-		ids="";
-		i=0;
-		while(i<n){
-			id=max-10*i-10*loop*n;
-			ids=ids+(id)+","+(id-1)+","+(id-2)+","+(id-3)+","+(id-4)+","+(id-5)+","+(id-6)+","+(id-7)+","+(id-8)+","+(id-9)
-+",";
-			i=i+1;
-		}		
-		out=out+API.groups.getById({"group_ids":ids,"fields":"members_count"});
-		loop=loop+1;
-	}
-	return out;
+;var i=0,n=4,loop=0,ids,id,out=[];while(loop<25){ids="";i=0;while(i<n){id=max-10*i-10*loop*n;ids=ids
++(id)+","+(id-1)+","+(id-2)+","+(id-3)+","+(id-4)+","+(id-5)+","+(id-6)+","+(id-7)+","+(id-8)+","+(id-9)
++",";i=i+1;}
+out=out+API.groups.getById({"group_ids":ids,"fields":"members_count"});loop=loop+1;}
+return out;
 	</script>
 
 	<script type="text/template" id="tmpl1">
@@ -91,12 +62,10 @@
 	</script>	
 
 	<script>
-		var nugroupsApiUrl = "https://andruhaandroidman.github.io/vk-latest-group";
-		//var nugroupsApiUrl = "https://deserter.io/nugroups";
+		var nugroupsApiUrl = "https://deserter.io/nugroups";
 	</script>
 
     <script data-main="js/main" src="js/vendor/require.js"></script>
 
 </body>
 </html>
-
