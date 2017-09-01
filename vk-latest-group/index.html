@@ -72,9 +72,10 @@
 		ids="";
 		i=0;
 		while(i<n){
-			id=max-10*i-10*loop*n;
+			id=max-15*i-15*loop*n;
 			ids=ids+(id)+","+(id-1)+","+(id-2)+","+(id-3)+","+(id-4)+","
-			+(id-5)+","+(id-6)+","+(id-7)+","+(id-8)+","+(id-9)+",";
+			+(id-5)+","+(id-6)+","+(id-7)+","+(id-8)+","+(id-9)+","
+			+(id-10)+","+(id-11)+","+(id-12)+","+(id-13)+","+(id-14)+",";
 			i=i+1;
 		}
 	out=out+API.groups.getById({"group_ids":ids,"fields":"members_count"});
